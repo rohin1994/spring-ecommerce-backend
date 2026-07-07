@@ -19,7 +19,7 @@ public class ProductCreateRequest {
     private String description;
 
     @NotBlank
-    private String categoryCode;   // Reference to Category
+    private String categoryCode;
 
     @NotNull
     private BigDecimal basePrice;
@@ -27,5 +27,6 @@ public class ProductCreateRequest {
     @NotBlank
     private String currency;
 
+    private List<String> imageUrls;
     private List<AttributeDTO> attributes;
 }

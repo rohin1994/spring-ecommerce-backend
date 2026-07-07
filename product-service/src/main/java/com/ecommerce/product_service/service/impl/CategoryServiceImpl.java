@@ -1,11 +1,12 @@
 package com.ecommerce.product_service.service.impl;
 
-import com.ecommerce.product_service.exception.BusinessException;
+import com.ecommerce.common.exception.BusinessException;
 import com.ecommerce.product_service.model.dto.request.CategoryCreateRequest;
 import com.ecommerce.product_service.model.entity.Category;
 import com.ecommerce.product_service.repository.CategoryRepository;
 import com.ecommerce.product_service.service.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,8 +43,14 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional(readOnly = true)
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Category getByCode(String code) {
         return categoryRepository.findByCode(code)
-                .orElseThrow(() -> new BusinessException("Category not found: " + code));
+                .orElseThrow(() -> new BusinessException("Category not found: " + code, HttpStatus.NOT_FOUND));
     }
 }

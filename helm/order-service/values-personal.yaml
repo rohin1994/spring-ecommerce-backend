@@ -1,0 +1,24 @@
+namespace: personal
+
+eureka:
+  url: http://service-discovery.personal.svc.cluster.local:8761/eureka/
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: kubernetes
+  - name: SPRING_DATASOURCE_URL
+    value: jdbc:postgresql://postgres:5432/ecommerce
+  - name: SPRING_DATASOURCE_USERNAME
+    value: ecommerce
+  - name: SPRING_DATASOURCE_PASSWORD
+    value: ecommerce
+  - name: ORDER_KAFKA_ENABLED
+    value: "false"
+
+probes:
+  readiness:
+    initialDelaySeconds: 60
+    periodSeconds: 15
+  liveness:
+    initialDelaySeconds: 90
+    periodSeconds: 20

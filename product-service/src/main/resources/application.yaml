@@ -4,7 +4,6 @@ server:
 spring:
   application:
     name: product-service
-
   mongodb:
     uri: mongodb://localhost:27017/product_db
 
@@ -12,3 +11,31 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+---
+spring:
+  config:
+    activate:
+      on-profile: kubernetes
+  mongodb:
+    uri: mongodb://mongodb:27017/product_db
+
+management:
+  health:
+    redis:
+      enabled: false
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://service-discovery.personal.svc.cluster.local:8761/eureka/
+  instance:
+    prefer-ip-address: true

@@ -11,5 +11,7 @@ public interface CategoryService {
 
     List<Category> getAllActiveCategories();
 
+    List<Category> getAllCategories();
+
     Category getByCode(String code);
 }

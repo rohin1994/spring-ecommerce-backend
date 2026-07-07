@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    discovery:
+      enabled: false
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/product_test_db
+
+eureka:
+  client:
+    enabled: false

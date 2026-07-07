@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,17 +27,18 @@ public class Product {
     private String description;
     private BigDecimal basePrice;
     private String currency;
+    private List<String> imageUrls = new ArrayList<>();
 
     private ProductStatus status;
 
     @DBRef
-    private Category category;  // reference category by ID
+    private Category category;
 
     public Product(String name, BigDecimal basePrice, String currency, Category category) {
         this.name = name;
         this.basePrice = basePrice;
         this.currency = currency;
         this.category = category;
-        this.status = ProductStatus.ACTIVE; // default
+        this.status = ProductStatus.ACTIVE;
     }
 }

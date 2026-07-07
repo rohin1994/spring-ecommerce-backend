@@ -1,0 +1,7 @@
+/home/rohinr/personal/spring-ecommerce-backend/common-lib/src/main/java/com/ecommerce/common/config/CommonWebAutoConfiguration.java
+/home/rohinr/personal/spring-ecommerce-backend/common-lib/src/main/java/com/ecommerce/common/dto/ApiProblemDetail.java
+/home/rohinr/personal/spring-ecommerce-backend/common-lib/src/main/java/com/ecommerce/common/exception/BusinessException.java
+/home/rohinr/personal/spring-ecommerce-backend/common-lib/src/main/java/com/ecommerce/common/exception/ErrorCode.java
+/home/rohinr/personal/spring-ecommerce-backend/common-lib/src/main/java/com/ecommerce/common/exception/GlobalExceptionHandler.java
+/home/rohinr/personal/spring-ecommerce-backend/common-lib/src/main/java/com/ecommerce/common/filter/TraceIdFilter.java
+/home/rohinr/personal/spring-ecommerce-backend/common-lib/src/main/java/com/ecommerce/common/security/SecurityConstants.java

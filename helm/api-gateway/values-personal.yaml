@@ -1,0 +1,16 @@
+namespace: personal
+
+eureka:
+  url: http://service-discovery.personal.svc.cluster.local:8761/eureka/
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: kubernetes
+
+probes:
+  readiness:
+    initialDelaySeconds: 60
+    periodSeconds: 15
+  liveness:
+    initialDelaySeconds: 90
+    periodSeconds: 20

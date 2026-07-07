@@ -1,0 +1,44 @@
+namespace: personal
+
+replicaCount: 1
+
+image:
+  repository: service-discovery
+  tag: 0.0.1-SNAPSHOT
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8761
+  nodePort: 30761
+
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 250m
+  limits:
+    memory: 768Mi
+    cpu: 500m
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: kubernetes
+
+probes:
+  path: /
+  readiness:
+    initialDelaySeconds: 25
+    periodSeconds: 10
+  liveness:
+    initialDelaySeconds: 45
+    periodSeconds: 20
+
+eureka:
+  url: ""
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  cpuTargetAverageUtilization: 50
+  memoryTargetAverageUtilization: 70

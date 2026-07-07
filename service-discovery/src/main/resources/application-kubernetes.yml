@@ -1,0 +1,10 @@
+# Single-replica standalone Eureka in Kubernetes.
+# Keeps self-registration off to avoid HTTP 400 heartbeat noise.
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+  server:
+    enable-self-preservation: false

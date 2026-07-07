@@ -6,7 +6,6 @@ import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @AllArgsConstructor
@@ -17,7 +16,10 @@ public class ProductDetailDTO {
     private String categoryCode;
     private String categoryName;
     private BigDecimal basePrice;
+    private BigDecimal discountedPrice;
+    private String discountLabel;
     private String currency;
     private String status;
+    private List<String> imageUrls;
     private List<AttributeDTO> attributes;
 }
